@@ -1,0 +1,7 @@
+#map {
+    height: 500px;
+    max-width: 960px;
+    margin: 0 auto 40px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
