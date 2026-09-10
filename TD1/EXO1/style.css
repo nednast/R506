@@ -1,0 +1,23 @@
+.geoloc {
+    display: block;
+}
+
+.geo-data {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--border);
+}
+
+.geo-data li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.geo-data li span:first-child {
+    color: var(--muted);
+}
