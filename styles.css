@@ -1,0 +1,102 @@
+ :root {
+            --bg: #15161a;
+            --surface: #1c1e23;
+            --border: #2a2c33;
+            --text: #e6e6e6;
+            --muted: #8a8d96;
+            --accent: #d8d9dc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 64px 24px 32px;
+        }
+
+        header .eyebrow {
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 8px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: -0.01em;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 8px 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 4px;
+        }
+
+        .card .count {
+            font-size: 13px;
+            color: var(--muted);
+            margin: 0 0 20px;
+        }
+
+        .card ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .card li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 0;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .card a:hover {
+            color: var(--muted);
+        }
+
+        .card a .arrow {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+     
