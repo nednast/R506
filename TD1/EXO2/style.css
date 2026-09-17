@@ -1,7 +1,20 @@
 #map {
     height: 500px;
     max-width: 960px;
-    margin: 0 auto 40px;
+    margin: 0 auto;
     border: 1px solid var(--border);
     border-radius: 10px;
+}
+
+#distances {
+    max-width: 960px;
+    margin: 16px auto 40px;
+    padding: 0;
+    list-style: none;
+    color: var(--text);
+}
+
+#distances li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
 }
