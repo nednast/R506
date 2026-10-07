@@ -22,9 +22,14 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
 directionalLight.position.set(3, 4, 5);
 scene.add(directionalLight);
 
-// Objet générique : un cube
+// Texture : chargée depuis une image locale (nécessite un serveur local)
+const textureLoader = new THREE.TextureLoader();
+const crateTexture = textureLoader.load('textures/crate.gif');
+crateTexture.colorSpace = THREE.SRGBColorSpace;
+
+// Objet générique : un cube texturé
 const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
-const material = new THREE.MeshStandardMaterial({ color: 0xaa0000 });
+const material = new THREE.MeshStandardMaterial({ map: crateTexture });
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
