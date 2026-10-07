@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    height: 100vh;
+}
+
+/* Globe 3D à gauche, carte Leaflet à droite */
+#globe,
+#map {
+    flex: 1;
+    height: 100%;
+}
+
+#globe {
+    position: relative;
+}
+
+/* Sur un écran étroit (smartphone) : globe en haut, carte en bas */
+@media (max-width: 700px) {
+    body {
+        flex-direction: column;
+    }
+}
+
+canvas {
+    display: block;
+}
+
+#info {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+#selection:empty {
+    display: none;
+}
+
+#selection {
+    margin-top: 4px;
+    color: #ffd84d;
+}

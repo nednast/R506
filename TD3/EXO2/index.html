@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercice 2 - Objets géolocalisés dans la caméra</title>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- playsinline + muted : obligatoires sur iOS pour lire la vidéo sans plein écran -->
+    <video id="camera" autoplay playsinline muted></video>
+
+    <div id="hud">
+        <button id="start-btn">Démarrer</button>
+        <div id="status"></div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
