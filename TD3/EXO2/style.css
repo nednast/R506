@@ -34,15 +34,43 @@ canvas {
 }
 
 #hud button {
+    margin-right: 6px;
     padding: 6px 10px;
     font-size: 13px;
     cursor: pointer;
 }
 
-#status:empty {
+#minimap {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1;
+    width: 180px;
+    height: 180px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    visibility: hidden; /* affichée seulement quand on a une position */
+}
+
+#minimap .leaflet-control-attribution {
+    font-size: 9px;
+}
+
+/* Flèche de direction : un triangle CSS, tourné selon le cap */
+.heading-arrow {
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 22px solid #ff4d4d;
+    transform-origin: 50% 70%;
+}
+
+#hud div:empty {
     display: none;
 }
 
-#status {
+#hud div {
     margin-top: 6px;
 }
