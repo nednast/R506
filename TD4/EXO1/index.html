@@ -7,7 +7,8 @@
     <title>Exercice 1 - Reconnaissance de lieu</title>
 
     <!-- ml5.js (contient TensorFlow.js) : script classique, il crée la variable globale ml5 -->
-    <script src="https://unpkg.com/ml5@1.3.1/dist/ml5.min.js"></script>
+    <!-- defer : la page s'affiche pendant le téléchargement (4,5 Mo), et script.js s'exécute après ml5 -->
+    <script defer src="https://unpkg.com/ml5@1.3.1/dist/ml5.min.js"></script>
 
     <script type="importmap">
         {
@@ -23,7 +24,8 @@
     <video id="camera" autoplay playsinline muted></video>
 
     <div id="hud">
-        <button id="start-btn">Démarrer</button>
+        <!-- Désactivé tant que les scripts ne sont pas chargés (activé dans script.js) -->
+        <button id="start-btn" disabled>Chargement…</button>
         <div id="status"></div>
         <div id="prediction"></div>
     </div>

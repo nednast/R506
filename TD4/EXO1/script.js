@@ -316,6 +316,10 @@ async function startCamera() {
     video.srcObject = stream;
 }
 
+// ml5 et Three.js sont chargés : on peut démarrer
+startButton.disabled = false;
+startButton.textContent = 'Démarrer';
+
 // Le navigateur exige une action de l'utilisateur pour demander l'autorisation
 startButton.addEventListener('click', async () => {
     startButton.disabled = true;
@@ -330,8 +334,8 @@ startButton.addEventListener('click', async () => {
 
     statusText.textContent = 'Chargement du modèle IA…';
     try {
-        classifier = ml5.imageClassifier(modelUrl ?? 'MobileNet');
-        await classifier.ready;
+        // Sans p5.js, ml5.imageClassifier() renvoie une promesse : on attend le classifieur chargé
+        classifier = await ml5.imageClassifier(modelUrl ?? 'MobileNet');
     } catch (error) {
         statusText.textContent = `Erreur modèle IA : ${error.message}`;
         return;
