@@ -247,9 +247,9 @@ async function showInfo(place) {
 
 const modelUrl = new URLSearchParams(location.search).get('model');
 
-// Le modèle commence à se charger tout de suite, pendant que l'utilisateur lit la page
-const classifier = ml5.imageClassifier(modelUrl ?? 'MobileNet');
-classifier.ready.catch(() => {}); // l'erreur éventuelle est affichée au clic sur Démarrer
+// Le modèle est créé au clic sur Démarrer, après la caméra :
+// si ml5 plante sur le téléphone, la caméra marche quand même et l'erreur est affichée
+let classifier = null;
 
 const MIN_CONFIDENCE = 0.15;  // en dessous, la réponse de l'IA est ignorée
 const FRAMES_TO_CONFIRM = 5;  // le même lieu doit être vu 5 fois de suite (évite le clignotement)
@@ -296,8 +296,19 @@ function gotResults(results) {
 // Démarrage
 // ---------------------------------------------------------------------------
 
+// Sur le téléphone on n'a pas la console : on affiche les erreurs à l'écran
+window.addEventListener('error', (event) => {
+    statusText.textContent = `Erreur : ${event.message}`;
+});
+window.addEventListener('unhandledrejection', (event) => {
+    statusText.textContent = `Erreur : ${event.reason?.message ?? event.reason}`;
+});
+
 // getUserMedia ne marche qu'en HTTPS ou sur localhost
 async function startCamera() {
+    if (!navigator.mediaDevices) {
+        throw new Error('caméra indisponible (il faut ouvrir la page en HTTPS)');
+    }
     const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: 'environment' }, // caméra arrière du smartphone
         audio: false,
@@ -319,6 +330,7 @@ startButton.addEventListener('click', async () => {
 
     statusText.textContent = 'Chargement du modèle IA…';
     try {
+        classifier = ml5.imageClassifier(modelUrl ?? 'MobileNet');
         await classifier.ready;
     } catch (error) {
         statusText.textContent = `Erreur modèle IA : ${error.message}`;
