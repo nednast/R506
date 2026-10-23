@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+/* La vidéo de la caméra remplit tout l'écran, en fond */
+#camera {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Le canvas Three.js est transparent et posé par-dessus la vidéo */
+canvas {
+    position: fixed;
+    inset: 0;
+    display: block;
+    pointer-events: none;
+}
+
+#hud {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 13px;
+    border-radius: 8px;
+}
+
+#hud button {
+    padding: 6px 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#hud div:empty {
+    display: none;
+}
+
+#hud div {
+    margin-top: 6px;
+}
+
+/* Fiche du lieu, en bas de l'écran */
+#info {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    z-index: 1;
+    display: flex;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-family: sans-serif;
+    border-radius: 12px;
+}
+
+#info[hidden] {
+    display: none;
+}
+
+#info-photo {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#info-photo:not([src]) {
+    display: none;
+}
+
+#info-title {
+    margin: 0 0 4px;
+    font-size: 16px;
+}
+
+/* Le résumé Wikipédia peut être long : on le coupe à 4 lignes */
+#info-text {
+    margin: 0 0 6px;
+    font-size: 13px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+#info-link {
+    color: #8ecbff;
+    font-size: 13px;
+}

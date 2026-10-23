@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercice 1 - Reconnaissance de lieu</title>
+
+    <!-- ml5.js (contient TensorFlow.js) : script classique, il crée la variable globale ml5 -->
+    <script src="https://unpkg.com/ml5@1.3.1/dist/ml5.min.js"></script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- playsinline + muted : obligatoires sur iOS pour lire la vidéo sans plein écran -->
+    <video id="camera" autoplay playsinline muted></video>
+
+    <div id="hud">
+        <button id="start-btn">Démarrer</button>
+        <div id="status"></div>
+        <div id="prediction"></div>
+    </div>
+
+    <!-- Fiche du lieu reconnu : photo 2D + résumé + lien Wikipédia -->
+    <div id="info" hidden>
+        <img id="info-photo" alt="">
+        <div id="info-body">
+            <h2 id="info-title"></h2>
+            <p id="info-text"></p>
+            <a id="info-link" target="_blank" rel="noopener">Voir sur Wikipédia</a>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
